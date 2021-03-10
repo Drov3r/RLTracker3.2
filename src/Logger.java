@@ -12,16 +12,18 @@ public class Logger {
 
     static int current=2;
     static boolean[] change=new boolean[7];
-    static String number = "76561198176055490";
+
+    //static String number = "76561198176055490";
+    static  String [] Players={"76561198176055490","76561198275589508","76561198148742258","76561198271159103"};
     public static void main(String[] args ) throws IOException {
 
-        while (true) {
+        //while (true) {
+        for(String number:Players) {
             int[] playlist = {10, 11, 13, 27, 28, 29, 34};
             String[] playlistNames = {"Solo", "Twos", "Threes", "Hoops", "Rumble", "DropShot", "Tournaments"};
 
-            for(boolean x:change)x=false;
+            for (boolean x : change) x = false;
             //"76561198176055490"   mine
-
 
 
             int[] current = new int[7];
@@ -61,7 +63,7 @@ public class Logger {
 
 
             for (int x : playlist) {
-                Tracker mmr = new Tracker(x,number);
+                Tracker mmr = new Tracker(x, number);
                 String rank = mmr.getMmr();
                 int num;
                 if (rank.contains(",")) {
@@ -69,7 +71,7 @@ public class Logger {
                 } else num = Integer.parseInt(rank);
 
                 if (num != current[i]) {
-                    change[i]=true;
+                    change[i] = true;
                     try (FileWriter fw = new FileWriter(PATH + playlistNames[i] + ".txt", true);
                          BufferedWriter bw = new BufferedWriter(fw);
                          PrintWriter out = new PrintWriter(bw)) {
@@ -97,15 +99,15 @@ public class Logger {
 
 
             }
-            try {
-                makeGraph(number,playlistNames);
-                System.out.println("Sleeping");
-                TimeUnit.MINUTES.sleep(4);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                makeGraph(number, playlistNames);
+//                System.out.println("Sleeping");
+//                TimeUnit.MINUTES.sleep(4);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+            //while true }
         }
-
     }
 
     private static void makeGraph(String number,String[] pN ) {
