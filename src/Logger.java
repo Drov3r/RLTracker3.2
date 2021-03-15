@@ -12,7 +12,7 @@ public class Logger {
 
     static int current=2;
     static boolean[] change=new boolean[7];
-
+    
     //static String number = "76561198176055490";
     static  String [] Players={"76561198176055490","76561198275589508","76561198148742258","76561198271159103","76561198288140418"};
     public static void main(String[] args ) throws IOException {
