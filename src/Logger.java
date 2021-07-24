@@ -67,8 +67,26 @@ public class Logger {
                 }
 
         FileWriter fr = new FileWriter(file, true);
-        //System.out.println(mmr);
-        fr.write(String.valueOf(mmr)+'\n');
+        BufferedReader reader;
+        reader = new BufferedReader(new FileReader(filepath));
+        String line = reader.readLine();
+        int data=0;
+        try {
+
+            while (line != null) {
+                data=Integer.parseInt(line);
+                System.out.println(line);
+                // read next line
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (data!=mmr)
+            fr.write(String.valueOf(mmr)+'\n');
+
         fr.close();
 
         }
