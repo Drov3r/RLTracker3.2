@@ -84,7 +84,7 @@ public class Logger {
             e.printStackTrace();
         }
 
-        if (data!=mmr)
+        if (data!=mmr&&mmr!=0)
             fr.write(String.valueOf(mmr)+'\n');
 
         fr.close();
