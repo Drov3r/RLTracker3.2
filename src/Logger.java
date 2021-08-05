@@ -19,7 +19,7 @@ public class Logger {
     static  String [] Platform;
     static String[] playlistNames = {"Solo", "Twos", "Threes", "Tournaments"};
     public static void main(String[] args ) throws IOException {
-        String [][] records=new String[5][2];
+        String [][] records=new String[10][2];
         int c=0;
         try (BufferedReader br = new BufferedReader(new FileReader("check.csv"))) {
             String line;
@@ -30,6 +30,7 @@ public class Logger {
                 c++;
             }
         }
+
         Players=new String[records.length];
         Platform=new String[records.length];
         for (int i = 0; i < records.length; i++) {
