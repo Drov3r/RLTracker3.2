@@ -19,7 +19,7 @@ public class Logger {
     static  String [] Platform;
     static String[] playlistNames = {"Solo", "Twos", "Threes", "Tournaments"};
     public static void main(String[] args ) throws IOException {
-        String [][] records=new String[10][2];
+        String [][] records=new String[6][2];
         int c=0;
         try (BufferedReader br = new BufferedReader(new FileReader("check.csv"))) {
             String line;
@@ -41,6 +41,7 @@ public class Logger {
         c=0;
         for(String number :Players) {
             int[] mmr = Tracker.Tracker(number,Platform[c]);
+            System.out.println(number);
             System.out.println(Arrays.toString(mmr));
             for (int i = 0; i < mmr.length; i++) {
                 writeFile(number,mmr[i],i);
@@ -64,7 +65,7 @@ public class Logger {
                 if(!file.exists()){
                     file.createNewFile();
                 }else {
-                    //System.out.println(fileName+"Exists");
+                    System.out.println(fileName+"Exists");
                 }
 
         FileWriter fr = new FileWriter(file, true);
@@ -76,7 +77,7 @@ public class Logger {
 
             while (line != null) {
                 data=Integer.parseInt(line);
-                System.out.println(line);
+                //System.out.println(line);
                 // read next line
                 line = reader.readLine();
             }

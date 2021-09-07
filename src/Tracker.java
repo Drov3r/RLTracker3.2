@@ -16,10 +16,10 @@ public class Tracker {
         try {
             Document doc = Jsoup.connect("https://api.yannismate.de/rank/"+plat+"/"+number+"?playlists=ranked_1v1,ranked_2v2,ranked_3v3,TOURNAMENTS").get() ;
 
-
+            System.out.println(doc);
             Elements paragraphs = doc.select("body");
             for(Element p : paragraphs) {
-                //System.out.println(p.text());
+                System.out.println(p.text());
                 String str=p.toString();
                 char [] text=str.toCharArray();
                 int count=0;
