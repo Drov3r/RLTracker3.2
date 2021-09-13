@@ -73,13 +73,16 @@ public class Logger {
         reader = new BufferedReader(new FileReader(filepath));
         String line = reader.readLine();
         int data=0;
+        int count=1;
         try {
 
             while (line != null) {
-                data=Integer.parseInt(line);
+                String[] values = line.split(",");
+                data=Integer.parseInt(values[0]);
                 //System.out.println(line);
                 // read next line
                 line = reader.readLine();
+                count++;
             }
             reader.close();
         } catch (IOException e) {
@@ -87,7 +90,7 @@ public class Logger {
         }
 
         if (data!=mmr&&mmr!=0)
-            fr.write(String.valueOf(mmr)+'\n');
+            fr.write(String.valueOf(mmr)+','+count+'\n');
 
         fr.close();
 
