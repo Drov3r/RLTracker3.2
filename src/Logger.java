@@ -77,8 +77,14 @@ public class Logger {
         try {
 
             while (line != null) {
-                String[] values = line.split(",");
-                data=Integer.parseInt(values[0]);
+                try{
+                    String[] values = line.split(",");
+                    data=Integer.parseInt(values[0]);
+                }catch (NumberFormatException nfe){
+
+                }
+
+
                 //System.out.println(line);
                 // read next line
                 line = reader.readLine();
