@@ -19,7 +19,8 @@ public class Logger {
     static  String [] Platform;
     static String[] playlistNames = {"Solo", "Twos", "Threes", "Tournaments"};
     public static void main(String[] args ) throws IOException {
-        String [][] records=new String[6][2];
+
+        String [][] records=new String[getlines()][2];
         int c=0;
         try (BufferedReader br = new BufferedReader(new FileReader("check.csv"))) {
             String line;
@@ -48,6 +49,14 @@ public class Logger {
             }
             c++;
         }
+    }
+
+    private static int getlines() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("check.csv"));
+        int lines = 0;
+        while (reader.readLine() != null) lines++;
+        reader.close();
+        return lines;
     }
 
 
